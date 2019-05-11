@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">quizview</string>
+    <string name="sample_answer">Answer</string>
+    <string-array name="sample_answers">
+        <item>One</item>
+        <item>Two</item>
+        <item>Three</item>
+    </string-array>
 </resources>

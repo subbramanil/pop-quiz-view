@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="QuizView">
+        <attr name="quizQuestion" format="string"/>
+        <attr name="numAnswers" format="integer"/>
+        <attr name="answerSet" format="reference"/>
+        <attr name="correctAnswer" format="integer"/>
+        <attr name="answerWeights" format="reference"/>
+        <attr name="revealAnswer" format="boolean"/>
+        <attr name="equalWeight" format="boolean"/>
+    </declare-styleable>
+</resources>
