@@ -9,6 +9,7 @@ import android.widget.LinearLayout
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import androidx.appcompat.widget.AppCompatTextView
+import androidx.core.content.ContextCompat
 import androidx.core.view.iterator
 
 class QuizView(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs) {
@@ -34,7 +35,6 @@ class QuizView(context: Context, attrs: AttributeSet) : LinearLayout(context, at
             R.styleable.QuizView,
             0, 0
         ).apply {
-
             try {
                 mNumAnswers = getInteger(R.styleable.QuizView_numAnswers, 0)
                 mCorrectAnswerIndex = getInteger(R.styleable.QuizView_correctAnswer, 0)
@@ -45,7 +45,6 @@ class QuizView(context: Context, attrs: AttributeSet) : LinearLayout(context, at
                 if (!mEqualWeight) {
                     mAnswerWeightsArray = getTextArray(R.styleable.QuizView_answerWeights)
                 }
-
             } finally {
                 recycle()
             }
@@ -93,7 +92,7 @@ class QuizView(context: Context, attrs: AttributeSet) : LinearLayout(context, at
                     mChosenAnswerIndex = checkedId
                     if (mCorrectAnswerIndex == checkedId) {
                         val chosenAnswer = group.findViewById<RadioButton>(mCorrectAnswerIndex)
-                        chosenAnswer.setBackgroundColor(resources.getColor(R.color.material_deep_teal_200))
+                        chosenAnswer.setBackgroundColor(ContextCompat.getColor(context, R.color.accent))
                     } else {
                         clearBackgrounds(group)
                     }
@@ -107,7 +106,7 @@ class QuizView(context: Context, attrs: AttributeSet) : LinearLayout(context, at
 
     private fun clearBackgrounds(group: RadioGroup?) {
         group?.iterator()?.forEach { radioButton ->
-            radioButton.setBackgroundColor(resources.getColor(R.color.white))
+            radioButton.setBackgroundColor(ContextCompat.getColor(context, R.color.white))
         }
     }
 
